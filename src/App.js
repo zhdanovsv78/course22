@@ -25,21 +25,23 @@ const App=()=> {
 	}
 
 	const handleOnFilterBookMarkTrue=()=>{
-		// handleReset()
-		const newArray = [...users].filter(item=>item.bookmark)
+		let newArray = fetchAll()
+		setUsers(newArray)
+		newArray = [...newArray].filter(item=>item.bookmark)
 		setUsers(newArray)
 	}
 
 	const handleOnFilterBookMarkFalse=()=>{
-		// handleReset()
-		const newArray = [...users].filter(item=>item.bookmark===false)
+		let newArray = fetchAll()
+		setUsers(newArray)
+		newArray = [...newArray].filter(item=>item.bookmark===false)
 		setUsers(newArray)
 	}
 
 	return (
 		<div>
 			<SearchStatus length = {users.length}/>
-			<button className="btn btn-primary btn-sm" onClick={()=> handleReset()}><i className="bi bi-arrow-clockwise"></i></button>
+			<button className="btn btn-primary btn-sm m-2" onClick={()=> handleReset()}><i className="bi bi-arrow-clockwise"></i></button>
 			<button className="btn btn-primary btn-sm m-2" onClick={()=>handleOnFilterBookMarkTrue()}><i class="bi bi-bookmark-fill"></i></button>
 			<button className="btn btn-primary btn-sm m-2" onClick={()=>handleOnFilterBookMarkFalse()}><i class="bi bi-bookmark"></i></button>
 
